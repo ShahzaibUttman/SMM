@@ -26,7 +26,7 @@ public class LoginSteps {
 
 		System.out.println("I'm inside Browser Setup");
 		System.setProperty("webdriver.chrome.driver",
-				"C:/Users/Hajra/eclipse-workspace/DevExpoAutomated/src/test/resources/Drivers/chromedriver.exe"
+				"SMM-Automated/src/test/resources/Drivers/chromedriver.exe"
 				); driver = new ChromeDriver();
 
 				driver.navigate().to("https://smm-staging.dividisapp.com/");
