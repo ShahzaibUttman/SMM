@@ -20,26 +20,28 @@ public class LoginSteps {
 
 	static WebDriver driver = null;
 
-	@Before public void BrowserSetup() {
+	@Before 
+	public void BrowserSetup() {
 
 
 
 		System.out.println("I'm inside Browser Setup");
 		System.setProperty("webdriver.chrome.driver",
-				"SMM-Automated/src/test/resources/Drivers/chromedriver.exe"
-				); driver = new ChromeDriver();
+				"C:/Users/Hajra/git/repository/SMM-Automated/src/test/resources/Drivers/chromedriver.exe"); 
+		driver = new ChromeDriver();
 
-				driver.navigate().to("https://smm-staging.dividisapp.com/");
+		driver.navigate().to("https://smm-staging.dividisapp.com/");
 
-				driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-				driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-				driver.manage().window().maximize();
+		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		driver.manage().window().maximize();
 
 
 	}
 
 
-	@After public void teardown() { 
+	@After 
+	public void teardown() { 
 		System.out.println("Browser is closed.");
 
 		driver.close(); 
@@ -79,13 +81,13 @@ public class LoginSteps {
 
 	@And("clicks on login button")
 	public void clicks_on_login_button() throws InterruptedException {
-		driver.findElement(By.id("kt_login_signin_submit"));
+		driver.findElement(By.id("kt_login_signin_submit")).click();
 		Thread.sleep(2000);
 	}
 
 	@Then("user is logged in")
 	public void user_is_logged_in() {
-		driver.findElement(By.className("modal-content"));
+		driver.findElement(By.xpath("//*[@id=\"kt_quick_panel_toggle\"]"));
 
 	}
 
@@ -106,7 +108,7 @@ public class LoginSteps {
 		Thread.sleep(2000);
 		driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/div[2]/perfect-scrollbar/div/div[1]/div/div[4]/div/img")).click();
 		Thread.sleep(2000);
-		
+
 	}
 
 
