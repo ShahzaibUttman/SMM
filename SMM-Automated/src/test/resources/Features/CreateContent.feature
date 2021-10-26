@@ -18,7 +18,7 @@ Feature: Feature to test Create Content
     When user search for solis
     Then Solis appears in the search
 
-  Scenario: Verify that by selection of club is working
+  Scenario: Verify that by selection of instagram is working for image
     Given user is on login page
     And user clicks on select club button and user select the club
     When user enters email and password
@@ -27,3 +27,53 @@ Feature: Feature to test Create Content
     And user selects instagram only
     And posts image
     Then image is only posted to instagram
+
+  Scenario: Verify that by selection of facebook is working with image
+    Given user is on login page
+    And user clicks on select club button and user select the club
+    When user enters email and password
+    And clicks on login button
+    When user clicks on create content
+    And user selects facebook only
+    And posts image
+    Then image is only posted to facebook
+
+  Scenario: Verify that by selection of club is working for image
+    Given user is on login page
+    And user clicks on select club button and user select the club
+    When user enters email and password
+    And clicks on login button
+    When user clicks on create content
+    And user selects club only
+    And posts image
+    Then image is only posted to club
+
+  Scenario: Verify that by selection of instagra, is working video
+    Given user is on login page
+    And user clicks on select club button and user select the club
+    When user enters email and password
+    And clicks on login button
+    When user clicks on create content
+    And user selects instagram only
+    And posts video
+    Then video is only posted to instagram
+
+  Scenario: Verify that by selection of facebook is working for video
+    Given user is on login page
+    And user clicks on select club button and user select the club
+    When user enters email and password
+    And clicks on login button
+    When user clicks on create content
+    And user selects facebook only
+    And posts video
+    Then video is only posted to facebook
+
+  Scenario: Verify that by selection of club is working for video
+    Given user is on login page
+    And user clicks on select club button and user select the club
+    When user enters email and password
+    And clicks on login button
+    When user clicks on create content
+    And user selects club only
+    And posts video
+    Then video is only posted to club
