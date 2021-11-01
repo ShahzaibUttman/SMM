@@ -28,7 +28,7 @@ Feature: Verify that user is able to login with valid credentials
    
    Scenario: Check Club selection has search bar and works properly
    Given user is on login page
-   When user clicks on select club button
+   When user clicks on select club button and user select the club
    And there is a search bar
    And user searches for Solis
    Then solis is displayed and search bar is working properly

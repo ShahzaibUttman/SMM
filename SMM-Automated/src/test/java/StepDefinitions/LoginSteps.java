@@ -27,7 +27,7 @@ public class LoginSteps {
 
 		System.out.println("I'm inside Browser Setup");
 		System.setProperty("webdriver.chrome.driver",
-				"C:/Users/Hajra/git/repository/SMM-Automated/src/test/resources/Drivers/chromedriver.exe"); 
+				"C:/Users/Admin/git/SMM/SMM-Automated/src/test/resources/Drivers/chromedriver.exe"); 
 		driver = new ChromeDriver();
 
 		driver.navigate().to("https://smm-staging.dividisapp.com/");
@@ -69,7 +69,7 @@ public class LoginSteps {
 
 		driver.findElement(By.xpath("/html/body/app-auth/div/div/div[2]/div/app-login/div/div/div/div")).click();
 		Thread.sleep(2000);
-		driver.findElement(By.xpath("/html/body/ngb-modal-window/div/div/div[2]/perfect-scrollbar/div/div[1]/div/div[7]/div/img")).click();
+		driver.findElement(By.xpath("//*[contains(@src,'https://socialapi.solissol.com/api/v1/en/media-upload/mediaFiles/test/123/a7c3ac8096922590b66bbfd21fef66c8.jpg ')]")).click();
 		Thread.sleep(2000);
 	}
 
@@ -147,8 +147,8 @@ public class LoginSteps {
 
 	@When("user enters invalid email and short password")
 	public void user_enters_invalid_email_and_short_password() {
-		driver.findElement(By.xpath("/html/body/app-auth/div/div/div[2]/div/app-login/div/form/div[3]/input")).sendKeys("admimail.com");
-		driver.findElement(By.xpath("/html/body/app-auth/div/div/div[2]/div/app-login/div/form/div[4]/input")).sendKeys("qwerp");
+		driver.findElement(By.xpath("//*[contains(@title, 'Email')]")).sendKeys("admimail.com");
+		driver.findElement(By.xpath("//*[contains(@title, 'Pass')]")).sendKeys("qwerp");
 	}
 
 	@Then("pop up is displayed")
