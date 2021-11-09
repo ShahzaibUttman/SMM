@@ -217,21 +217,66 @@ public class LoginSteps {
 
 	@And("user selects instagram only")
 	public void user_selects_instagram_only() throws InterruptedException {
-		driver.findElement(By.xpath("/html/body/app-layout/div/div/div/div/div/div/app-publish/div/div[1]/div/div[2]/div/div[2]/div/table/tbody/tr[216]/td/div/label/span")).click();
+		driver.findElement(By.xpath("//*[contains(@src, 'https://socialapi.solissol.com/api/v1/en/media-upload/mediaFiles/123/test/113ad1ea783c7d107afd8ddc09eb6f23e.svg')]")).click();
 		Thread.sleep(2000);
 	}
-	
+
 	@And("posts image")
 	public void posts_image() throws InterruptedException {
-		driver.findElement(By.xpath("//*[contains(@name, 'myfile')]")).sendKeys("C:/Users/Hajra/git/repository/SMM-Automated/src/test/resources/Images/download.jpg");
+		driver.findElement(By.xpath("//*[contains(@name, 'myfile')]")).sendKeys("C:/Users/Admin/git/SMM/SMM-Automated/src/test/resources/Images/download.jpg");
 		Thread.sleep(4000);
-		driver.findElement(By.xpath("/html/body/app-layout/div/div/div/div/div/div/app-publish/div/div[2]/div/div[2]/mat-tab-group/div/mat-tab-body[1]/div/div/div/div/div/form[2]/div[3]/div[2]/div[4]/button")).click();
+		driver.findElement(By.xpath("//*[contains(@class,'btn btn-primary flex-row-reverse')]")).click();
+		Thread.sleep(10000);
 	}
-	
+
 	@Then("image is only posted to instagram")
 	public void only_insta_post() throws InterruptedException {
 		System.out.println("Passed");
 	}
+	@When("user selects facebook only")
+	public void user_selects_facebook_only() {
+		driver.findElement(By.xpath("//*[contains(@src, 'https://socialapi.solissol.com/api/v1/en/media-upload/mediaFiles/123/test/6ca2499366f5b5611041fe57e2aac1ee9.svg')]")).click();
+	}
 
+	@Then("image is only posted to facebook")
+	public void image_is_only_posted_to_facebook() {
+		System.out.println("Image Posted to Facebook");
+	}
+
+	@When("user selects club only")
+	public void user_selects_club_only() throws InterruptedException {
+		driver.findElement(By.xpath("/html/body/app-layout/div/div/div/div/div/div/app-publish/div/div[1]/div/div[2]/div/div[1]/div/div/input")).sendKeys("Solis");
+		Thread.sleep(2000);
+		driver.findElement(By.xpath("//*[contains(@class,'text-dark text-hover-primary font-size-sm text-truncate')]")).click();
+	}
+
+	@Then("image is only posted to club")
+	public void image_is_only_posted_to_club() {
+		System.out.println("Posted to club");
+	}
+
+	@When("posts video")
+	public void posts_video() throws InterruptedException {
+		driver.findElement(By.xpath("/html/body/app-layout/div/div/div/div/div/div/app-publish/div/div[2]/div/div[2]/mat-tab-group/mat-tab-header/div[2]/div/div/div[2]/div[1]")).click();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//*[contains(@name, 'myfile')]")).sendKeys("C:/Users/Admin/git/repository/SMM-Automated/src/test/resources/Videos/video.mp4");
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//*[contains(@class,'btn btn-primary flex-row-reverse')]")).click();
+	}
+
+	@Then("video is only posted to instagram")
+	public void video_is_only_posted_to_instagram() {
+		System.out.println("Video Posted to insta");
+	}
+
+	@Then("video is only posted to facebook")
+	public void video_is_only_posted_to_facebook() {
+		System.out.println("Video Posted to FB");
+	}
+
+	@Then("video is only posted to club")
+	public void video_is_only_posted_to_club() {
+		System.out.println("Video Posted to club");
+	}
 
 }
