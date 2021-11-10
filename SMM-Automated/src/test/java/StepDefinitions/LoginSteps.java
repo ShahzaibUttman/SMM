@@ -27,13 +27,13 @@ public class LoginSteps {
 
 		System.out.println("I'm inside Browser Setup");
 		System.setProperty("webdriver.chrome.driver",
-				"C:/Users/Admin/git/SMM/SMM-Automated/src/test/resources/Drivers/chromedriver.exe"); 
+				"C:/Users/Umaar Ahmed/git/SMM/SMM-Automated/src/test/resources/Drivers/chromedriver.exe"); 
 		driver = new ChromeDriver();
 
 		driver.navigate().to("https://smm-staging.dividisapp.com/");
 
-		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		//driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		driver.manage().window().maximize();
 
 
@@ -277,6 +277,141 @@ public class LoginSteps {
 	@Then("video is only posted to club")
 	public void video_is_only_posted_to_club() {
 		System.out.println("Video Posted to club");
+	}
+	
+	@When("user clicks on facebook")
+	public void user_clicks_on_facebook() throws InterruptedException {
+		driver.findElement(By.xpath("//*[contains(@class, 'svg-icon menu-icon socicon-facebook icon-lg mr-5')]")).click();
+		Thread.sleep(5000);
+	}
+
+	@Then("user is redirected to facebook create content")
+	public void user_is_redirected_to_facebook_create_content() {
+		//driver.findElement(By.URL("https://smm-staging.dividisapp.com/pages/facebook"));
+		String eURL = "https://smm-staging.dividisapp.com/pages/facebook";
+		String aURL = driver.getCurrentUrl();
+		if(eURL.equalsIgnoreCase(aURL)) {
+			System.out.println("pass");	
+		}
+		else {
+			System.out.println("fail");
+		}
+	}
+
+	@When("user writes facebook page in search bar")
+	public void user_writes_facebook_page_in_search_bar() {
+	    driver.findElement(By.xpath("//*[contains(@class, 'form-control ng-valid ng-dirty ng-touched)]")).sendKeys("facebook");
+	}
+
+	@Then("its apperar the connected pages")
+	public void its_apperar_the_connected_pages() {
+		driver.findElement(By.xpath("//*[contains(@class, 'text-dark text-hover-primary font-size-sm')]"));
+	}
+
+	@Then("user select the facebook page")
+	public void user_select_the_facebook_page() {
+	    driver.findElement(By.xpath("//*[contains(@src, 'https://socialapi.solissol.com/api/v1/en/media-upload/mediaFiles/123/test/6ca2499366f5b5611041fe57e2aac1ee9.svg')]")).click();
+	}
+
+	@When("user select the select all button")
+	public void user_select_the_select_all_button() {
+	    driver.findElement(By.xpath(null)).click();
+	}
+
+	@Then("it should select all of the facebook pages")
+	public void it_should_select_all_of_the_facebook_pages() {
+	   driver.findElement(By.xpath("/html/body/app-layout/div/div/div/div/div/div/app-facebook/div/div[1]/div/div[2]/div/div[2]/div/table/tr/td/label/span")).click();
+	}
+
+	@Then("every facebook page is selectetd")
+	public void every_facebook_page_is_selectetd() {
+	    driver.findElement(By.xpath("/html/body/app-layout/div/div/div/div/div/div/app-facebook/div/div[1]/div/div[2]/div/div[2]/div/table/tr/td/label/span"));
+	}
+
+
+	@Then("video/image is posted to all of the selected pages.")
+	public void video_image_is_posted_to_all_of_the_selected_pages() {
+	    System.out.println("Image_is posted");
+	}
+
+	@When("user select the facebook page individually")
+	public void user_select_the_facebook_page_individually() {
+		driver.findElement(By.xpath("/html/body/app-layout/div/div/div/div/div/div/app-facebook/div/div[1]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td/div/label/div[2]/a")).click();
+	}
+
+	@Then("it should select only chosen  facebook pages.")
+	public void it_should_select_only_chosen_facebook_pages() {
+	    System.out.println("  "); 
+	}
+
+	@Then("custom pages are selected.")
+	public void custom_pages_are_selected() {
+		driver.findElement(By.xpath("/html/body/app-layout/div/div/div/div/div/div/app-facebook/div/div[1]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td/div/label/div[2]/a")).click();
+	}
+
+	
+
+	@When("User clicks on Schedule button")
+	public void user_clicks_on_schedule_button() {
+	    driver.findElement(By.xpath("//*[contains(@class, 'flaticon-calendar-with-a-clock-time-tools icon-lg')]")).click();
+	}
+
+	@Then("date and time text fields appers")
+	public void date_and_time_text_fields_appers() {
+	    System.out.println("Date and Time dropdown appeared");
+	}
+
+	@Then("user select the date and Time")
+	public void user_select_the_date_and_time() throws InterruptedException {
+	    driver.findElement(By.xpath("//*[contains(@placeholder, 'Select Date')]")).click();
+	    Thread.sleep(10000);
+	    driver.findElement(By.xpath("/html/body/app-layout/div/div/div/div/div/div/app-facebook/div/div[2]/div/div[2]/mat-tab-group/div/mat-tab-body[1]/div/div/div/div/div/form[2]/div[3]/div[1]/div[1]/div/ngx-date-picker/div/div/div[2]/div[1]/div[2]/span[12]/span")).click();
+	    Thread.sleep(5000);
+	    driver.findElement(By.xpath("//*[contains(@placeholder, 'Select Time')]")).click();
+	    Thread.sleep(10000);
+	    driver.findElement(By.xpath("//*[contains(@aria-label, 'increment hours')]")).click();
+	    Thread.sleep(5000);
+	    driver.findElement(By.xpath("//*[contains(@aria-label, 'increment minutes')]")).click();
+	    Thread.sleep(5000);
+	    
+	}
+
+
+	@When("clickes on schedule button")
+	public void clickes_on_schedule_button() {
+	    driver.findElement(By.xpath(null)).click();
+	}
+
+	@Then("video/image is posted to the selected pages.")
+	public void video_image_is_posted_to_the_selected_pages() {
+	    System.out.println("image/video is posted");
+	}
+
+	@Then("user click on create content")
+	public void user_click_on_create_content() throws InterruptedException {
+		driver.findElement(By.xpath("//*[contains(@class,'svg-icon menu-icon text-danger fab fa-telegram-plane icon-lg mr-5')]")).click();
+		Thread.sleep(5000);
+	    
+	
+	}
+
+	@Then("user Add a photo and text in the field")
+	public void user_add_a_photo_and_text_in_the_field() throws InterruptedException {
+		driver.findElement(By.xpath("//*[contains(@name, 'myfile')]")).sendKeys("C:/Users/Umaar Ahmed/git/SMM/SMM-Automated/src/test/resources/Images/download.jpg");
+		Thread.sleep(8000);
+		driver.findElement(By.xpath("//*[contains(@name, 'myfile')]")).sendKeys("C:/Users/Umaar Ahmed/git/SMM/SMM-Automated/src/test/resources/Images/download.jpg");
+		Thread.sleep(8000);
+	}
+
+	@When("user clicks on Clear button")
+	public void user_clicks_on_clear_button() throws InterruptedException {
+	    driver.findElement(By.xpath("//*[contains(@class, 'btn btn-transparent-warning')]")).click();
+	    Thread.sleep(5000);
+	}
+
+	@Then("it should clear all the text and photo/image")
+	public void it_should_clear_all_the_text_and_photo_image() {
+	    System.out.println();
 	}
 
 }

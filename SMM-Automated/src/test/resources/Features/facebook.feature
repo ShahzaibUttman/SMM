@@ -29,7 +29,7 @@ Feature: feature to test facebook posting
     When user select the select all button
     Then it should select all of the facebook pages
     And every facebook page is selectetd
-    And posts video/image
+    And posts image
     Then video/image is posted to all of the selected pages.
 
   Scenario: Verify that custom page selection is working fine for facebook pages.
@@ -40,7 +40,8 @@ Feature: feature to test facebook posting
     When user select the facebook page individually
     Then it should select only chosen  facebook pages.
     And custom pages are selected.
-    And posts video/image
+    And posts video
+    And posts image
     Then video/image is posted to  the selected pages.
 
   Scenario: Verify that schedule is working fine for facebook posts
@@ -51,7 +52,7 @@ Feature: feature to test facebook posting
     When User clicks on Schedule button
     Then date and time text fields appers
     And user select the date and Time
-    And user select the Image/Video
+    And post video
     When clickes on schedule button
     Then video/image is posted to the selected pages.
     
