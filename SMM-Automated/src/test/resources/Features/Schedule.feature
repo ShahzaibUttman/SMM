@@ -14,3 +14,10 @@ Feature: To Test Schedule Tab
     And user clicks on select club button and user select the club
     When user enters email and password
     And clicks on login button
+		When user clicks on Schedule
+		Then there are queue, published and unpublished
+		When user clicks on queue
+		Then only queued schedules are displayed
+		When user clicks on published
+		Then 	
+	Scenario	

@@ -8,7 +8,6 @@ Feature: feature to test facebook posting
     And clicks on login button
     When user clicks on facebook
     Then user is redirected to facebook create content
-    And there are three club boxes
 
   Scenario: Verify that  Search is working
     Given user is on login page

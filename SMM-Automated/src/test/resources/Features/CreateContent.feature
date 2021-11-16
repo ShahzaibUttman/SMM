@@ -48,7 +48,7 @@ Feature: Feature to test Create Content
     And posts image
     Then image is only posted to club
 
-  Scenario: Verify that by selection of instagra, is working video
+  Scenario: Verify that by selection of instagram is working video
     Given user is on login page
     And user clicks on select club button and user select the club
     When user enters email and password

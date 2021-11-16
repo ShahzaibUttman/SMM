@@ -27,7 +27,7 @@ public class LoginSteps {
 
 		System.out.println("I'm inside Browser Setup");
 		System.setProperty("webdriver.chrome.driver",
-				"C:/Users/Umaar Ahmed/git/SMM/SMM-Automated/src/test/resources/Drivers/chromedriver.exe"); 
+				"C:/Users/Admin/git/SMM/SMM-Automated/src/test/resources/Drivers/chromedriver.exe"); 
 		driver = new ChromeDriver();
 
 		driver.navigate().to("https://smm-staging.dividisapp.com/");
@@ -68,8 +68,8 @@ public class LoginSteps {
 	public void user_clicks_on_select_club_button_and_user_selects_a_club() throws InterruptedException {
 
 		driver.findElement(By.xpath("/html/body/app-auth/div/div/div[2]/div/app-login/div/div/div/div")).click();
-		Thread.sleep(2000);
-		driver.findElement(By.xpath("//*[contains(@src,'https://socialapi.solissol.com/api/v1/en/media-upload/mediaFiles/test/123/a7c3ac8096922590b66bbfd21fef66c8.jpg ')]")).click();
+		Thread.sleep(5000);
+		driver.findElement(By.xpath("//*[contains(@src,'https://socialapi.solissol.com/api/v1/en/media-upload/mediaFiles/test/123/a7c3ac8096922590b66bbfd21fef66c8.jpg')]")).click();
 		Thread.sleep(2000);
 	}
 
@@ -87,7 +87,7 @@ public class LoginSteps {
 
 	@Then("user is logged in")
 	public void user_is_logged_in() {
-		driver.findElement(By.xpath("//*[@id=\"kt_quick_panel_toggle\"]"));
+		driver.findElement(By.xpath("//*[@id=kt_quick_panel_toggle]"));
 
 	}
 
@@ -281,8 +281,10 @@ public class LoginSteps {
 	
 	@When("user clicks on facebook")
 	public void user_clicks_on_facebook() throws InterruptedException {
+		Thread.sleep(5000);
 		driver.findElement(By.xpath("//*[contains(@class, 'svg-icon menu-icon socicon-facebook icon-lg mr-5')]")).click();
 		Thread.sleep(5000);
+
 	}
 
 	@Then("user is redirected to facebook create content")
@@ -299,13 +301,14 @@ public class LoginSteps {
 	}
 
 	@When("user writes facebook page in search bar")
-	public void user_writes_facebook_page_in_search_bar() {
-	    driver.findElement(By.xpath("//*[contains(@class, 'form-control ng-valid ng-dirty ng-touched)]")).sendKeys("facebook");
+	public void user_writes_facebook_page_in_search_bar() throws InterruptedException {
+		Thread.sleep(5000);
+	    driver.findElement(By.xpath("/html/body/app-layout/div/div/div/div/div/div/app-facebook/div/div[1]/div/div[2]/div/div[1]/div/div/input")).sendKeys("facebook");
 	}
 
 	@Then("its apperar the connected pages")
 	public void its_apperar_the_connected_pages() {
-		driver.findElement(By.xpath("//*[contains(@class, 'text-dark text-hover-primary font-size-sm')]"));
+		driver.findElement(By.xpath("//*[contains(@src, 'https://socialapi.solissol.com/api/v1/en/media-upload/mediaFiles/123/test/6ca2499366f5b5611041fe57e2aac1ee9.svg')]"));
 	}
 
 	@Then("user select the facebook page")
@@ -397,9 +400,9 @@ public class LoginSteps {
 
 	@Then("user Add a photo and text in the field")
 	public void user_add_a_photo_and_text_in_the_field() throws InterruptedException {
-		driver.findElement(By.xpath("//*[contains(@name, 'myfile')]")).sendKeys("C:/Users/Umaar Ahmed/git/SMM/SMM-Automated/src/test/resources/Images/download.jpg");
+		driver.findElement(By.xpath("//*[contains(@name, 'myfile')]")).sendKeys("C:/Users/Admin/git/SMM/SMM-Automated/src/test/resources/Images/download.jpg");
 		Thread.sleep(8000);
-		driver.findElement(By.xpath("//*[contains(@name, 'myfile')]")).sendKeys("C:/Users/Umaar Ahmed/git/SMM/SMM-Automated/src/test/resources/Images/download.jpg");
+		driver.findElement(By.xpath("//*[contains(@name, 'myfile')]")).sendKeys("C:/Users/Admin/git/SMM/SMM-Automated/src/test/resources/Images/download.jpg");
 		Thread.sleep(8000);
 	}
 
